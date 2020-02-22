@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -26,10 +26,18 @@ class A extends React.Component{
     return <div onClick={this.handleClick}><FancyButton ref={this.state.ref}>ddd</FancyButton></div>
   }
 }
-
 // 你可以直接获取 DOM button 的 ref：
 
+function Hooktest() {
+  const [name, setName] = useState("lila");
+  useEffect(() => console.log("age++++", age))
+  const [age, setAge] = useState(19)
+  useEffect(() => console.log("name----", name))
+  // useEffect(() => console.log(age))
+  return null
+}
+
 ReactDOM.render(
-  <A></A>,
+  <Hooktest></Hooktest>,
   document.getElementById('root')
 );
