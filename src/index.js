@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import test from "./test.js"
 
 const FancyButton = React.forwardRef((props, ref) => (
   <button ref={ref} className="FancyButton">
@@ -29,12 +30,14 @@ class A extends React.Component{
 // 你可以直接获取 DOM button 的 ref：
 
 function Hooktest() {
+  console.log(test)
+
   const [name, setName] = useState("lila");
   useEffect(() => console.log("age++++", age))
   const [age, setAge] = useState(19)
   useEffect(() => console.log("name----", name))
   // useEffect(() => console.log(age))
-  return null
+  return test()
 }
 
 ReactDOM.render(
