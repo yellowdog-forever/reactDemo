@@ -21,7 +21,7 @@ class A extends React.Component{
   }
   
   handleClick() {
-    console.log(">>>>>>>>>>>>>>>", this.state.ref)
+    console.log(">>>>>>>>>>>>>>>cherry pick", this.state.ref)
   }
   render() {
     return <div onClick={this.handleClick}><FancyButton ref={this.state.ref}>ddd</FancyButton></div>
