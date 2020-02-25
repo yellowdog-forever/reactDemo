@@ -18,6 +18,7 @@ class A extends React.Component{
     this.state = {
       ref: React.createRef()
     }
+    console.log("check")
   }
   
   handleClick() {
