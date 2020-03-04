@@ -1,46 +1,28 @@
-
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import test from "./test.js"
 
-const FancyButton = React.forwardRef((props, ref) => (
-  <button ref={ref} className="FancyButton">
-    {props.children}
-  </button>
-));
-// vue可以在组件上面绑定click方法
+class MyPureComponent extends React.Component {
+  shouldComponentUpdate(oldProps, oldStates) {
+    Object.is(oldProps, this.props) && Object.is(oldStates, this.state)
+    return false
+  }
+}
 
-class A extends React.Component{
+class Counter extends MyPureComponent {
   constructor() {
     super()
-    this.handleClick = this.handleClick.bind(this)
     this.state = {
-      ref: React.createRef()
+      count: 0
     }
+    this.handleClick = this.handleClick.bind(this);
   }
-  
   handleClick() {
-    console.log(">>>>>>>>>>>>>>>cherry pick", this.state.ref)
+
+    this.setState(state => ({count: state.count++}))
   }
   render() {
-    return <div onClick={this.handleClick}><FancyButton ref={this.state.ref}>ddd</FancyButton></div>
+  return (<div onClick={this.handleClick}>点我{this.count}</div>)
   }
 }
-// 你可以直接获取 DOM button 的 ref：
 
-function Hooktest() {
-  console.log(test)
-
-  const [name, setName] = useState("lila");
-  useEffect(() => console.log("age++++", age))
-  const [age, setAge] = useState(19)
-  useEffect(() => console.log("name----", name))
-  // useEffect(() => console.log(age))
-  return test()
-}
-
-ReactDOM.render(
-  <Hooktest></Hooktest>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Counter />, document.getElementById('root'))
