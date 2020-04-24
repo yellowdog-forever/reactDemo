@@ -4,5 +4,5 @@ interface T {
 function loggingIdentity<T>(arg: T[]): T[] {
   return arg;
 }
-
+console.log(">>>>>>>>>>>>>")
 console.log(loggingIdentity([1,2]))
