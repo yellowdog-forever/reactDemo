@@ -28,6 +28,8 @@ function compose (middleware) {
    * @api public
    */
 
+   console.log("你还需要看解释器")
+
   return function (context, next) {
     // last called middleware #
     let index = -1
