@@ -42,6 +42,8 @@ function counter(state = { count: 0 }, action) {
   }
 }
 
+
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
